@@ -1,5 +1,9 @@
 package kerimbiber.kerimovic;
-
+/**
+ * 
+ * @author Kerimovic
+ *
+ */
 
 public class Haber {
 

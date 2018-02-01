@@ -5,13 +5,22 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+/**
+ * 
+ * @author Kerimovic
+ *
+ */
 @RestController
 public class RESTServisi {
 	 private static final List<Haber> HABER = new ArrayList<Haber>();
 	    
 	    private Object kilit = new Object();
-	    
+	    /**
+	     * 
+	     * @param haberadi
+	     * @param icerik
+	     * @return
+	     */
 	    @RequestMapping("/haber/olustur")
 	    public synchronized Haber ogrenciOlustur(String haberadi, String icerik){
 	        synchronized (kilit) {
@@ -20,7 +29,10 @@ public class RESTServisi {
 	            return haber;
 	        }
 	    }
-	    
+	    /**
+	     * 
+	     * @return
+	     */
 	    @RequestMapping("/haber/listele")
 	    public synchronized List<Haber> ogrenciListele(){
 	        synchronized (kilit) {
@@ -32,7 +44,10 @@ public class RESTServisi {
 	            
 	        }
 	    }
-	    
+	    /**
+	     * 
+	     * @return
+	     */
 	    @RequestMapping("/haber/sil")
 	    public String haberTemizle(){
 	        synchronized (kilit) {
