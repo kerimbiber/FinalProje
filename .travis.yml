@@ -1,3 +1,0 @@
-language: java
-
-- "mvn -f kerimovic/pom.xml -Dmaven.javadoc.skip=false clean install cobertura:cobertura checkstyle:checkstyle pmd:pmd javadoc:javadoc javadoc:aggregate site"
