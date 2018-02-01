@@ -1,9 +1,11 @@
-language": "java",
-  "script": "mvn cobertura:cobertura",
-  "after_success": [
-    "bash <(curl -s https://codecov.io/bash)"
-  ],
-  "group": "stable",
-  "dist": "trusty",
-  "os": "windows"
-}
+language: java
+sudo: false
+  script: 
+  - "mvn -f kerimovic/pom.xml -Dmaven.javadoc.skip=false clean install cobertura:cobertura checkstyle:checkstyle pmd:pmd javadoc:javadoc javadoc:aggregate site"
+  
+  jdk:
+  - oraclejdk8
+  
+  after_success:
+    bash <(curl -s https://codecov.io/bash)
+
